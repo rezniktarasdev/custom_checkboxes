@@ -1,0 +1,121 @@
+*,
+*::before {
+   box-sizing: border-box;
+}
+
+/* обнуление стилей*/
+body {
+   margin: 0;
+   padding: 0;
+}
+
+/* inner обертка*/
+.inner {
+   width: 500px;
+   display: flex;
+   margin: 20px auto;
+}
+
+.checkboxes_list,
+.radiobuttons_list {
+   width: 50%;
+}
+
+/* прячем дефолтные чекбоксы и радио*/
+.checkbox,
+.radio {
+   display: none;
+}
+
+/* стилизуем чекбосы и радио*/
+.checkbox_label,
+.radio_label {
+   display: block;
+   padding: 10px;
+   color: #979797;
+   font-family: Helvetica, sans-serif;
+   font-size: 21px;
+   line-height: 2.1;
+   background-color: #F0F8FF;
+   cursor: pointer;
+   border: 1px solid transparent;
+}
+
+/* делаем родителю релатив для псевдоелементов after и before*/
+.checkbox_label,
+.radio_label {
+   position: relative;
+   padding-left: 40px;
+}
+
+/* добавление before елементов*/
+.checkbox_label::before,
+.radio_label::before {
+   content: "";
+   position: absolute;
+   top: 19px;
+   left: 10px;
+   width: 20px;
+   height: 20px;
+   border: 2px solid #979797;
+   border-radius: 25%;
+   transform: translateY(15%);
+}
+
+/* корректируем бордер для радио*/
+.radio_label::before {
+   border-radius: 50%;
+}
+
+/* добавляем общие стили для чекнутых радио и чекбоксов*/
+.checkbox:checked+label,
+.radio:checked+label {
+   color: #000;
+   border: 1px solid #979797;
+}
+
+/* корректируем стили для чекнутых радио*/
+.radio:checked+label {
+   background-color: #FFBB12;
+}
+
+/* корректируем стили для чекнутых чекбоксов*/
+.checkbox:checked+label {
+   background-color: #4FB8FF;
+}
+
+/* добавляем after псевдоелементы*/
+.checkbox:checked+label::after {
+   content: "";
+   position: absolute;
+   top: 27px;
+   left: 15px;
+   width: 10px;
+   height: 10px;
+   border-radius: 25%;
+   background: #979797;
+}
+
+/* добавляем after псевдоелементы*/
+.radio:checked+label::after {
+   background-color: #4FB8FF;
+   color: #000;
+   border: 1px solid #979797;
+   content: "";
+   position: absolute;
+   top: 26px;
+   left: 14px;
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   background: #979797;
+}
+
+/* меняем бекграунд в чекнутого before елемента*/
+.checkbox:checked+label::before {
+   background-color: #0E4DA4;
+}
+
+.radio:checked+label::before {
+   background-color: #F47265;
+}
